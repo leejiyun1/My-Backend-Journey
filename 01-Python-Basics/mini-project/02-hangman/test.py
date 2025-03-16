@@ -16,7 +16,7 @@ hangman_pics = [
     """
      ------
      |    |
-     |    O
+     |    O  
      |
      |
      |
@@ -24,41 +24,50 @@ hangman_pics = [
     """
      ------
      |    |
-     |    O
-     |    |
+     |    O  
+     |    |  
      |
      |
     ---""",
     """
      ------
      |    |
-     |    O
-     |   /|
+     |    O  
+     |   /|  
      |
      |
     ---""",
     """
      ------
-     |    |
-     |    O
-     |   /|\
+     |    |  
+     |    O  
+     |   /|\  
      |
      |
     ---""",
     """
      ------
-     |    |
-     |    O
-     |   /|\
+     |    |  
+     |    O  
+     |   /|\  
      |   /
      |
     ---""",
     """
      ------
-     |    |
-     |    O
-     |   /|\
-     |   / \
+     |    |  
+     |    O  
+     |   /|\  
+     |   / \  
+     |
+    ---""",
+    """
+     ------
+     |    |  
+     |    O  
+     |  
+     |   /|\  
+     |   / \  
      |
     ---""",
 ]
@@ -82,7 +91,7 @@ class HangmanGame:
         self.hidden_word = ["_"] * len(self.word)
 
         # 목숨 기회
-        self.life = 6
+        self.life = 7
 
         # 사용자가 적은 글자 저장
         self.guessed_letters = []
@@ -92,7 +101,7 @@ class HangmanGame:
     def display(self):
 
         clear_screen()
-        print(hangman_pics[6 - self.life])
+        print(hangman_pics[7 - self.life])
         print("현재 단어", " ".join(self.hidden_word))
         print("입력한 글자들:", ", ".join(self.guessed_letters))
 

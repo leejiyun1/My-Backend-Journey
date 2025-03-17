@@ -10,3 +10,7 @@ class NegativeAmountError(Exception):
 class UserNotFoundError(Exception):
     def __init__(self, username: str) -> None:
         super().__init__(f"사용자 '{username}'을(를) 찾을 수 없습니다!")
+
+class InvalidInputError(Exception):
+    def __init__(self) -> None:
+        super().__init__("숫자를 입력해주세요.")    

@@ -42,11 +42,11 @@ class BankingService():
 
             try:
                 if choice == "1":
-                    amount = self.get_valid_amount("💰 입금할 금액을 입력하세요: ")
+                    amount = self.get_valid_amount("입금할 금액을 입력하세요: ")
                     user.account.deposit(amount)
 
                 elif choice == "2":
-                    amount = self.get_valid_amount("🏦 출금할 금액을 입력하세요: ")
+                    amount = self.get_valid_amount("출금할 금액을 입력하세요: ")
                     user.account.withdraw(amount)
 
                 elif choice == "3":

@@ -1,4 +1,6 @@
 from .transaction import Transaction
+from utils.exceptions import InsufficientFundsError, NegativeAmountError
+from utils.decorators import validate_transaction
 
 class Account():
 
@@ -8,27 +10,24 @@ class Account():
         self.transactions: list = []
 
     # 입금
+    @validate_transaction
     def deposit(self, amount:int) -> None:
-
-        # 양수 확인
-        if amount > 0:
-            self.__balance += amount
-            transaction = Transaction("입금", amount, self.__balance)
-            self.transactions.append(transaction)
-        else:
-            print("0보다 큰 금액을 입력해주세요.")
+        self.__balance += amount
+        transaction = Transaction("입금", amount, self.__balance)
+        self.transactions.append(transaction)   
         
     # 출금
+    @validate_transaction
     def withdraw(self, amount:int) -> None:
+        # 잔고확인
+        if amount > self.__balance:
+            raise InsufficientFundsError(self.__balance)
+        # 메소드 함수
+        self.__balance -= amount
+        transaction = Transaction("출금", amount, self.__balance)
+        self.transactions.append(transaction)
 
-        # 잔액과 양수 확인
-        if amount > 0 and amount <= self.__balance:
-            self.__balance -= amount
-            transaction = Transaction("출금", amount, self.__balance)
-            self.transactions.append(transaction)
-        else:
-            print("0보다 크거나 잔고보다 작은 금액을 입력해주세요.")
-
+    
     # 잔고 반환 메서드
     def get_balance(self) -> int:
         return self.__balance
@@ -44,4 +43,4 @@ class Account():
         return cls.bank_name
 
     def set_bank_name(cls, name: str) -> None:
-        cls.bank_name = name    
+        cls.bank_name = name

@@ -2,8 +2,7 @@ from .user import User
 
 class BankingService():
     def __init__(self) -> None:
-        self.user = []
-
+        self.user = {}
 
     def add_user(self, username: str) -> None:
         
@@ -14,7 +13,7 @@ class BankingService():
     def find_user(self, username: str) -> User:
 
         for user in self.user:
-            if user.username == username:
+            if User.username == username:
                 return user
         return None
     

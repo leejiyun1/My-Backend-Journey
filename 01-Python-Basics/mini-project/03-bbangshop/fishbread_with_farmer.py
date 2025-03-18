@@ -1,3 +1,15 @@
+price = {
+    "팥붕어빵" : 1000,
+    "슈크림붕어빵" : 1200,
+    "초코붕어빵" : 1500
+}
+
+def calculate_sales():  
+    total_sales = 0
+    for item in sales:
+        total_sales += sales[item] * price[item]
+    print(f"오늘의 총 매출은 {total_sales}원 입니다.")
+
 stock ={
     "팥붕어빵" : 10,
     "슈크림붕어빵" : 8,
@@ -15,7 +27,8 @@ def order_bread():
         bread_type = input("주문할 붕어빵을 선택해주세요. (팥붕어빵, 슈크림붕어빵, 초코붕어빵) 또는 '뒤로가기'입력 : ")
         if bread_type == "뒤로가기":
             break
-        # 메뉴 주문
+
+        # 메뉴 주문 
         if bread_type in stock:
             bread_count = int(input("주문할 개수를 입력해주세요."))
             if stock[bread_type] >= bread_count:
@@ -53,3 +66,5 @@ while True:
     elif mode == "종료":
         print("시스템을 종료합니다.")
         break
+
+calculate_sales()

@@ -4,12 +4,6 @@ price = {
     "초코붕어빵" : 1500
 }
 
-def calculate_sales():  
-    total_sales = 0
-    for item in sales:
-        total_sales += sales[item] * price[item]
-    print(f"오늘의 총 매출은 {total_sales}원 입니다.")
-
 stock ={
     "팥붕어빵" : 10,
     "슈크림붕어빵" : 8,
@@ -21,6 +15,12 @@ sales ={
     "슈크림붕어빵" : 0,
     "초코붕어빵" : 0
 }
+
+def calculate_sales():  
+    total_sales = 0
+    for item in sales:
+        total_sales += sales[item] * price[item]
+    print(f"오늘의 총 매출은 {total_sales}원 입니다.")
 
 def order_bread():
     while True:

@@ -1,0 +1,56 @@
+*{
+    text-align: center;
+}
+
+html{
+    background-color: #FFF5E1;
+    font-size: 16px;
+}
+
+body{
+    width: 640px;
+    margin: auto;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+h1{
+    font-size: 48px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+.tmi-card {
+    background-color: #ffffff;              /* 배경은 흰색 */
+    border-radius: 16px;                    /* 모서리를 둥글게 */
+    padding-top: 2px;
+    padding-left: 24px;
+    padding-right: 24px;                      /* 안쪽 여백 */
+    padding-bottom: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    margin: 32px 0;                         /* 위아래 여백 */
+    max-width: 600px;                       /* 너무 넓어지지 않도록 */
+    margin-left: auto;                     /* 가운데 정렬 */
+    margin-right: auto;
+}
+.tmi-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.tmi-card ol {
+    list-style-position: inside; /* 숫자와 글자가 같은 라인 시작 */
+    padding-left: 0;             /* 기본 들여쓰기 제거 */
+}
+.tmi-card li {
+    text-indent: -1em;           /* 텍스트를 숫자 쪽으로 당김 */
+    padding-left: 1em;           /* 너무 붙지 않게 살짝 띄움 */
+}

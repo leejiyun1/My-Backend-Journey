@@ -1,0 +1,82 @@
+/* 기본 틀에서 색상 글꼴 개성을 살린 추가적인 스타일 */
+
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    font-family: 'Gowun Dodum', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+.container{
+    height: 100%;
+    background-color: #F4F6FA;
+}
+
+.chat-screen{
+    height: calc(100% - 120px);
+}
+
+.user{
+    background-color: #DDE8F0;
+    border: 1px solid #E0E0E0;
+    padding: 16px;
+    height: 80px;
+}
+.user__column{
+    float: left;
+}
+
+.user__pic{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    background-color: #4A90E2;
+}
+.user__nick{
+    margin: 5px;
+}
+.user__count{
+    font-size: 12px;
+    color: gray;
+    margin: 6px;
+}
+
+.chat-form{
+    height: 120px;
+    background-color: white;
+}
+.chat-form__firld{
+    height: 120px;
+}
+.chat-form__msg{
+    float: left;
+    width: calc(100%-120px);
+    height: 120px;
+    border: none;
+    resize: none;
+    font-size: 24px;
+    padding: 10px;
+}
+.chat-form__bt{
+    float: right;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #999;
+    border-radius: 12px;
+    background-color: #AABEDF;
+    font-size: 18px;
+}
+
+.chat-form__msg:focus{
+    outline: none;
+}
+
+.chat-form__bt:active{
+    background-color: #90A8D4
+}

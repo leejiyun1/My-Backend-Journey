@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from routes.user import user_bp
 from flask_jwt_extended import JWTManager  # JWT
+from jwt_utils import configure_jwt
 
 app = Flask(__name__)
 configure_jwt(app)  # JWT 관련 추가 설정을 적용합니다.

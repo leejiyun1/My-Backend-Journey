@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 TODO</title>
+</head>
+<body>
+    <h2>나의 TODO 목록</h2>
+
+    <!-- ✅ TODO 추가 폼 -->
+    <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="할 일 입력" required>
+        <button type="submit">추가</button>
+    </form>
+
+    <ul id="todo-list"></ul>
+
+    <script>
+        const token = localStorage.getItem("token");
+
+        // ✅ Todo 추가 폼 처리
+        const form = document.getElementById("todo-form");
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const title = document.getElementById("todo-input").value;
+
+            const res = await fetch("/todo/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                },
+                body: JSON.stringify({ title })
+            });
+
+            if (res.ok) {
+                document.getElementById("todo-input").value = "";
+                loadTodos();  // 목록 다시 로드
+            } else {
+                alert("Todo 추가 실패!");
+            }
+        };
+
+        // ✅ Todo 목록 불러오기
+        const loadTodos = () => {
+            fetch("/todo/", {
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            })
+            .then(res => res.json())
+            .then(todos => {
+                const list = document.getElementById("todo-list");
+                list.innerHTML = ""; // 기존 목록 비우기
+                todos.forEach(todo => {
+                    const li = document.createElement("li");
+                    li.textContent = todo.title + (todo.completed ? " ✅" : "");
+                    list.appendChild(li);
+                });
+            })
+            .catch(err => {
+                alert("인증 오류 또는 데이터 조회 실패");
+                console.error(err);
+            });
+        };
+
+        // 페이지 진입 시 Todo 불러오기
+        loadTodos();
+    </script>
+</body>
+</html>
